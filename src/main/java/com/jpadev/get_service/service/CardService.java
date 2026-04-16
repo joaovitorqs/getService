@@ -16,6 +16,10 @@ public class CardService {
         return cardRepository.findAll();
     }
 
+    public List<Card> listAllActive(){
+        return cardRepository.findAllActiveNotExpired(LocalDateTime.now()); //Lembrar de fazer regra no banco para o filtro.
+    }
+
     public Card findCardById(Long id){
         return cardRepository.findById(id)
                 .orElseThrow();//Voltar e tratar exception corretamente !
