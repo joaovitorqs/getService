@@ -11,13 +11,9 @@ import java.util.List;
 public class CardService {
 
     private final CardRepository cardRepository;
-
+    //criar metodo de listagem de apenas cards ativos!
     public List<Card> listAll(){
         return cardRepository.findAll();
-    }
-
-    public List<Card> listAllActive(){
-        return cardRepository.findAllActiveNotExpired(LocalDateTime.now()); //Lembrar de fazer regra no banco para o filtro.
     }
 
     public Card findCardById(Long id){
