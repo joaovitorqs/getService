@@ -11,13 +11,13 @@ body {
     width: 100%;
     max-width: 1200px;
     display: flex;
-    flex-direction: column; /* Empilha título, texto e imagem */
-    align-items: center;    /* Centraliza tudo horizontalmente */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
 .container {
-    align-self: center; /* Garante que o container se centralize no body flex */
+    align-self: center;
     width: 100%;
     max-width: 1200px;
     padding: 40px 20px;
@@ -31,7 +31,7 @@ body {
     background: #f0f2f5;
     padding: 50px 0;
     display: flex;
-    justify-content: center; /* Centraliza a div .content */
+    justify-content: center;
 }
 
 .hero h1 {
