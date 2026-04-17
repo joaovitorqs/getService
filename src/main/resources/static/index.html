@@ -3,42 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Plataforma de Serviços</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="container">
 <header class="hero">
-    <h1>Plataforma GetService</h1>
-    <p>Encontre ou ofereça serviços de forma fácil e rápida.</p>
-
-    <img src="http://localhost:9000/image/imgIndexBanner01.png" alt="Ilustração" style="width:300px;">
+    <div class="content">
+        <h1>Plataforma GetService</h1>
+        <p>Encontre ou ofereça serviços de forma fácil e rápida.</p>
+        <img src="image/imgIndexBanner01.png" alt="Ilustração">
+    </div>
 </header>
 
-<section class="actions">
-    <h2>O que deseja fazer?</h2>
-
-    <div class="cards">
-        <div class="card blue" onclick="irParaCriar()">
-            <h3>Criar Solicitação</h3>
-            <p>Peça um serviço</p>
+<main class="container">
+    <section class="actions">
+        <h2>O que deseja fazer?</h2>
+        <div class="cards">
+            <div class="card blue" onclick="irParaCriar()">
+                <h3>Criar Solicitação</h3>
+                <p>Peça um serviço</p>
+            </div>
+            <div class="card green" onclick="irParaLista()">
+                <h3>Ver Solicitações</h3>
+                <p>Consultar pedidos</p>
+            </div>
         </div>
-
-        <div class="card green" onclick="irParaLista()">
-            <h3>Ver Solicitações</h3>
-            <p>Consultar pedidos</p>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
 <footer>
-    <p>© 2026 Get Service LTDA</p>
-    <div>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+    <div class="content">
+        <p>© 2026 Get Service LTDA</p>
+        <div>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </div>
     </div>
 </footer>
-
-<script src="script.js"></script>
-</div>
 </body>
 </html>

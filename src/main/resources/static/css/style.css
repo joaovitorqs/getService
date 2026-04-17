@@ -1,22 +1,37 @@
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f6f8;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
 }
-.container {
-    max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+.content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column; /* Empilha título, texto e imagem */
+    align-items: center;    /* Centraliza tudo horizontalmente */
+    text-align: center;
+}
+
+.container {
+    align-self: center; /* Garante que o container se centralize no body flex */
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 50px 20px;
+    width: 100%;
     background: #f0f2f5;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center; /* Centraliza a div .content */
 }
 
 .hero h1 {
@@ -30,9 +45,10 @@ body {
 }
 
 .hero img {
-    max-width: 80px;
+    max-width: 400px;
     width: 100%;
     height: auto;
+    margin-top: 20px;
 }
 
 /* ACTIONS */
@@ -88,13 +104,12 @@ body {
 
 /* FOOTER */
 footer {
+    width: 100%;
+    background: #eee;
+    padding: 30px 0;
+    margin-top: auto;
     display: flex;
-        flex-direction: column;
-        align-items: center; /* centraliza */
-        gap: 10px;
-        padding: 20px;
-        background: #eee;
-        margin-top: 40px;
+    justify-content: center;
 }
 
 footer a {
