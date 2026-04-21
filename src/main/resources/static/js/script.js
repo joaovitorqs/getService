@@ -1,7 +1,7 @@
 function irParaCriar() {
-    window.location.href = "create.html";
+    window.location.href = "/createService.html";
 }
 
 function irParaLista() {
-    window.location.href = "list.html";
+    window.location.href = "/listService.html";
 }
