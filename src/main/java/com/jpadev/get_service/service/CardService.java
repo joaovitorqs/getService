@@ -11,7 +11,7 @@ import java.util.List;
 public class CardService {
 
     private final CardRepository cardRepository;
-    //criar metodo de listagem de apenas cards ativos!
+    //Voltar e criar metodo de listagem de apenas cards ativos!
     public List<Card> listAll(){
         return cardRepository.findAll();
     }
