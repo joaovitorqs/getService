@@ -11,9 +11,15 @@ import java.util.List;
 public class CardService {
 
     private final CardRepository cardRepository;
-    //Voltar e criar metodo de listagem de apenas cards ativos!
-    public List<Card> listAll(){
-        return cardRepository.findAll();
+
+    public List<Card> listAllActive() {
+        LocalDateTime now = LocalDateTime.now();
+
+        return cardRepository.findAll().stream()
+                .filter(card -> card.getCreatedTime()
+                        .plusHours(72)
+                        .isAfter(now))
+                .toList();
     }
 
     public Card findCardById(Long id){
@@ -26,7 +32,12 @@ public class CardService {
     }
     public Card salvarCard (Card card){
         card.setCreatedTime(LocalDateTime.now());
-        card.setTimeExpired(LocalDateTime.now().plusDays(3));
+        card.setTimeExpired(card.getCreatedTime().plusHours(72));
+
+        return cardRepository.save(card);
+    }
+
+    public Card salvarCardTeste (Card card){
 
         return cardRepository.save(card);
     }

@@ -35,4 +35,20 @@ public class Card {
         this.createdTime = createdTime;
         this.timeExpired = timeExpired;
     }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public LocalDateTime getTimeExpired() {
+        return timeExpired;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public void setTimeExpired(LocalDateTime timeExpired) {
+        this.timeExpired = timeExpired;
+    }
 }

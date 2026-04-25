@@ -20,7 +20,7 @@ public class CardController {
 
     @GetMapping
     public List<Card> listAllCards () {
-        return cardService.listAll();
+        return cardService.listAllActive();
     }
 
     @GetMapping("/{id}")
@@ -32,6 +32,11 @@ public class CardController {
     @PostMapping
     public Card createCard(@RequestBody Card card){
         return cardService.salvarCard(card);
+    }
+
+    @PostMapping("/teste")
+    public Card createCardTeste(@RequestBody Card createCardTeste){
+        return cardService.salvarCardTeste(createCardTeste);
     }
 
     @DeleteMapping("/{id}")
