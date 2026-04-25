@@ -51,4 +51,8 @@ public class Card {
     public void setTimeExpired(LocalDateTime timeExpired) {
         this.timeExpired = timeExpired;
     }
+
+    public long getId() {
+        return id;
+    }
 }

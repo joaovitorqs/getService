@@ -5,6 +5,7 @@ import com.jpadev.get_service.repository.CardRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -17,8 +18,9 @@ public class CardService {
 
         return cardRepository.findAll().stream()
                 .filter(card -> card.getCreatedTime()
-                        .plusHours(72)
-                        .isAfter(now))
+                .plusHours(72)
+                .isAfter(now))
+                .sorted(Comparator.comparing(Card::getCreatedTime))
                 .toList();
     }
 
