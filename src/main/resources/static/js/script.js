@@ -28,7 +28,6 @@ function enviarSolicitacao() {
             return response.json();
         })
         .then(data => {
-            alert("Solicitação criada com sucesso!");
             document.querySelector("form").reset();
             window.location.href = "/listService.html";
         })
