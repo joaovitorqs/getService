@@ -1,5 +1,6 @@
 package com.jpadev.get_service.service;
 
+import com.jpadev.get_service.exception.ResourceNotFoundException;
 import com.jpadev.get_service.model.Card;
 import com.jpadev.get_service.repository.CardRepository;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class CardService {
 
     public Card findCardById(Long id){
         return cardRepository.findById(id)
-                .orElseThrow();//Voltar e tratar exception corretamente !
+                .orElseThrow(() -> new ResourceNotFoundException("Card not found by ID: " + id));
     }
 
     public CardService (CardRepository cardRepository){
@@ -46,7 +47,7 @@ public class CardService {
 
     public void deleteCard (Long id){
         if (!cardRepository.existsById(id)){
-            //Voltar e tratar exception corretamente !
+            throw new ResourceNotFoundException("Card not found by ID: " + id);
         }
         cardRepository.deleteById(id);
     }
