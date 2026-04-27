@@ -84,7 +84,7 @@ function renderizarCards(cards) {
             <div class="card">
                 <div class="card-header">
                     <h3>${card.title}</h3>
-                    <button class="btn">Entrar em contato</button>
+                    <button class="btn" onclick="chamarWhatsapp('${card.contact}')">Entrar em contato</button>
                 </div>
 
                 <p>${card.description}</p>
@@ -103,3 +103,20 @@ function renderizarCards(cards) {
 window.onload = function () {
     listarCards();
 };
+function chamarWhatsapp(numero){
+
+    numero = numero.replace(/\D/g,'');
+
+    if(!numero.startsWith('55')){
+        numero = '55' + numero;
+    }
+
+    const mensagem = encodeURIComponent(
+       "Olá, vi sua solicitação no getService e gostaria de conversar."
+    );
+
+    window.open(
+      `https://wa.me/${numero}?text=${mensagem}`,
+      '_blank'
+    );
+}
