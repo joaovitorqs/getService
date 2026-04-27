@@ -1,7 +1,9 @@
 package com.jpadev.get_service.controller;
 
+import com.jpadev.get_service.DTO.CardRequest;
 import com.jpadev.get_service.model.Card;
 import com.jpadev.get_service.service.CardService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,8 +32,9 @@ public class CardController {
     }
 
     @PostMapping
-    public Card createCard(@RequestBody Card card){
-        return cardService.salvarCard(card);
+    public ResponseEntity<Card> createCard(@Valid @RequestBody CardRequest cardRequest){
+        Card saved = cardService.salvarCard(cardRequest);
+        return ResponseEntity.status(201).body(saved);
     }
 
     @PostMapping("/teste")

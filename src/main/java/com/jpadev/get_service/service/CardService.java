@@ -1,5 +1,6 @@
 package com.jpadev.get_service.service;
 
+import com.jpadev.get_service.DTO.CardRequest;
 import com.jpadev.get_service.exception.ResourceNotFoundException;
 import com.jpadev.get_service.model.Card;
 import com.jpadev.get_service.repository.CardRepository;
@@ -33,7 +34,14 @@ public class CardService {
     public CardService (CardRepository cardRepository){
         this.cardRepository = cardRepository;
     }
-    public Card salvarCard (Card card){
+    public Card salvarCard (CardRequest request){
+        Card card = new Card();
+
+        card.setNameClient(request.getNameClient());
+        card.setContact(request.getContact());
+        card.setTitle(request.getTitle());
+        card.setDescription(request.getDescription());
+
         card.setCreatedTime(LocalDateTime.now());
         card.setTimeExpired(card.getCreatedTime().plusHours(72));
 

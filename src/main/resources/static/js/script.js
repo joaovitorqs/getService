@@ -7,6 +7,7 @@ function irParaLista() {
 }
 
 function enviarSolicitacao() {
+
     const dados = {
         nameClient: document.getElementById("nome").value,
         contact: document.getElementById("contato").value,
@@ -21,20 +22,36 @@ function enviarSolicitacao() {
         },
         body: JSON.stringify(dados)
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro ao enviar");
+    .then(async response => {
+
+        if(!response.ok){
+
+            const erro = await response.json();
+
+            if(erro.fields){
+                let mensagens = "";
+
+                for(let campo in erro.fields){
+                    mensagens += erro.fields[campo] + "\n";
+                }
+
+                throw new Error(mensagens);
             }
-            return response.json();
-        })
-        .then(data => {
-            document.querySelector("form").reset();
-            window.location.href = "/listService.html";
-        })
-        .catch(error => {
-            console.error(error);
-            alert("Erro ao enviar solicitação");
-        });
+
+            throw new Error(erro.message);
+        }
+
+        return response.json();
+    })
+    .then(data => {
+        document.querySelector("form").reset();
+        window.location.href = "/listService.html";
+    })
+    .catch(error => {
+        console.error(error);
+        alert(error.message);
+    });
+
 }
 
 function listarCards() {
