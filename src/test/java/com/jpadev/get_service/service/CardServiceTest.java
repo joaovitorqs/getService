@@ -1,17 +1,19 @@
 package com.jpadev.get_service.service;
 
+import com.jpadev.get_service.exception.ResourceNotFoundException;
 import com.jpadev.get_service.model.Card;
 import com.jpadev.get_service.repository.CardRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import static org.mockito.Mockito.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,6 +32,7 @@ class CardServiceTest {
     }
 
     @Test
+    @DisplayName("List active cards")
     void listAllActive() {
         LocalDateTime now = LocalDateTime.now();
 
@@ -48,7 +51,24 @@ class CardServiceTest {
     }
 
     @Test
-    void findCardById() {
+    @DisplayName("Case find id")
+    void findCardByIdCase01() {
+        Card card = new Card();
+
+        when(cardRepository.findById(1L)).thenReturn(Optional.of(card));
+
+        Card result = cardService.findCardById(1L);
+
+        assertEquals(card, result);
+    }
+
+    @Test
+    @DisplayName("Case not find id")
+    void findCardByIdCase02() {
+        when(cardRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(ResourceNotFoundException.class,
+                () -> cardService.findCardById(1L));
     }
 
     @Test
