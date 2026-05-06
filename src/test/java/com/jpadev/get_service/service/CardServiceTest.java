@@ -51,7 +51,7 @@ class CardServiceTest {
     }
 
     @Test
-    @DisplayName("Case find id")
+    @DisplayName("Case find by card id")
     void findCardByIdCase01() {
         Card card = new Card();
 
@@ -63,7 +63,7 @@ class CardServiceTest {
     }
 
     @Test
-    @DisplayName("Case not find id")
+    @DisplayName("Case not find by card id")
     void findCardByIdCase02() {
         when(cardRepository.findById(1L)).thenReturn(Optional.empty());
 
@@ -80,6 +80,12 @@ class CardServiceTest {
     }
 
     @Test
+    @DisplayName("Case deleted by card ID")
     void deleteCard() {
+        when(cardRepository.existsById(1L)).thenReturn(true);
+
+        cardService.deleteCard(1L);
+
+        verify(cardRepository).deleteById(1L);
     }
 }
