@@ -1,8 +1,17 @@
 # getService
 
+## Acesso ao Projeto
+
+🔗 Sistema Online: https://getservice.onrender.com
+
+📁 Repositório: https://github.com/joaovitorqs/getService
+
+---
+
 Projeto Full Stack desenvolvido com foco em consolidar conhecimentos em desenvolvimento Back-End utilizando Java e Spring Boot, aplicando arquitetura em camadas, validação de dados, persistência com PostgreSQL e integração com Front-End estático.
 
 O objetivo da aplicação é permitir a criação e gerenciamento de cards de solicitação de serviços, funcionando como um pequeno mural de serviços disponíveis.
+
 
 ---
 
